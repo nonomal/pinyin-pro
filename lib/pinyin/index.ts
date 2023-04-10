@@ -9,7 +9,7 @@ import {
   middlewareV,
   middlewareType,
 } from './middlewares';
-import { SingleWordResult } from '../type';
+import { SingleWordResult, AllData } from '../type';
 
 interface BasicOptions {
   /**
@@ -70,19 +70,6 @@ interface BasicOptions {
    * @value true：返回值中 ü 转换成 v
    */
   v?: boolean;
-}
-
-interface AllData {
-  origin: string;
-  pinyin: string;
-  initial: string;
-  final: string;
-  num: number;
-  first: string;
-  finalHead: string;
-  finalBody: string;
-  finalTail: string;
-  isZh: boolean;
 }
 
 interface OptionsReturnString extends BasicOptions {

@@ -7,6 +7,20 @@ export interface SingleWordResult {
   delete?: boolean;
 }
 
+// type = all 结果
+export interface AllData {
+  origin: string;
+  pinyin: string;
+  initial: string;
+  final: string;
+  num: number;
+  first: string;
+  finalHead: string;
+  finalBody: string;
+  finalTail: string;
+  isZh: boolean;
+}
+
 // toneType 属性可选参数
 export type ToneType = 'symbol' | 'num' | 'none';
 
