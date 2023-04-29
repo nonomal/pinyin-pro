@@ -9,7 +9,7 @@ import {
   middlewareV,
   middlewareType,
 } from './middlewares';
-import { SingleWordResult, AllData } from '../type';
+import { SingleWordResult, AllData, HeteronymData } from '../type';
 
 interface BasicOptions {
   /**
@@ -77,9 +77,18 @@ interface OptionsReturnString extends BasicOptions {
    * @description 返回结果的格式
    * @value string：以字符串格式返回，拼音之间用空格隔开 （默认值）
    * @value array：以数组格式返回
-   * @value array: 返回全部信息数组
+   * @value all: 返回全部信息数组
    */
   type?: 'string';
+}
+
+interface OptionsHeteronymString extends OptionsReturnString {
+  /**
+   * @description 是否返回每个字的所有拼音
+   * @value false: 只返回每个字在输入文本中的语境读音（默认值）
+   * @value true: 返回每个字的所有拼音
+   */
+  heteronym: true;
 }
 
 interface OptionsReturnArray extends BasicOptions {
@@ -87,9 +96,18 @@ interface OptionsReturnArray extends BasicOptions {
    * @description 返回结果的格式
    * @value string：以字符串格式返回，拼音之间用空格隔开 （默认值）
    * @value array：以数组格式返回
-   * @value array: 返回全部信息数组
+   * @value all: 返回全部信息数组
    */
   type: 'array';
+}
+
+interface OptionsHeteronymArray extends OptionsReturnArray {
+  /**
+   * @description 是否返回每个字的所有拼音
+   * @value false: 只返回每个字在输入文本中的语境读音（默认值）
+   * @value true: 返回每个字的所有拼音
+   */
+  heteronym: true;
 }
 
 interface OptionsReturnAll extends BasicOptions {
@@ -97,9 +115,18 @@ interface OptionsReturnAll extends BasicOptions {
    * @description 返回结果的格式
    * @value string：以字符串格式返回，拼音之间用空格隔开 （默认值）
    * @value array：以数组格式返回
-   * @value array: 返回全部信息数组
+   * @value all: 返回全部信息数组
    */
   type: 'all';
+}
+
+interface OptionsHeteronymAll extends OptionsReturnAll {
+  /**
+   * @description 是否返回每个字的所有拼音
+   * @value false: 只返回每个字在输入文本中的语境读音（默认值）
+   * @value true: 返回每个字的所有拼音
+   */
+  heteronym: true;
 }
 
 export interface CompleteOptions extends BasicOptions {
@@ -143,6 +170,14 @@ function pinyin(word: string, options?: OptionsReturnArray): string[];
  * @description: 获取汉语字符串的拼音
  * @param {string} word 要转换的汉语字符串
  * @param {OptionsReturnAll=} options 配置项
+ * @return {string | string[] | AllData[]} options.type 为 string 时，返回字符串，中间用空格隔开；为 array 时，返回拼音字符串数组；为 all 时返回全部信息的数组
+ */
+function pinyin(word: string, options?: OptionsReturnAll): AllData[];
+
+/**
+ * @description: 获取所有汉字所有拼音
+ * @param {string} word 要转换的汉语字符串
+ * @param {OptionsHeteronymString=} options 配置项
  * @return {string | string[] | AllData[]} options.type 为 string 时，返回字符串，中间用空格隔开；为 array 时，返回拼音字符串数组；为 all 时返回全部信息的数组
  */
 function pinyin(word: string, options?: OptionsReturnAll): AllData[];

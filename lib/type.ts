@@ -7,7 +7,7 @@ export interface SingleWordResult {
   delete?: boolean;
 }
 
-// type = all 结果
+// type: all 结果
 export interface AllData {
   origin: string;
   pinyin: string;
@@ -18,6 +18,23 @@ export interface AllData {
   finalHead: string;
   finalBody: string;
   finalTail: string;
+  isZh: boolean;
+}
+
+// type: all & heteronym 结果
+export interface HeteronymData {
+  origin: string;
+  /**
+   * @description 以空格隔开的拼音字符串
+   */
+  pinyin: string;
+  /**
+   * @description 拼音数组
+   */
+  pinyinList: string[];
+  /**
+   * @description 是否为汉字
+   */
   isZh: boolean;
 }
 
