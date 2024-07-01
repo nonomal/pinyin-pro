@@ -1,5 +1,9 @@
-const { pinyin } = require("../");
-const expect = require("chai").expect;
+import { pinyin, addDict } from '../lib/index';
+import { expect, describe, it } from 'vitest';
+
+const completeDict = require("@pinyin-pro/data/complete.json");
+
+addDict(completeDict);
 
 describe("number", () => {
   it("[number]数字发音 一行", () => {
@@ -286,5 +290,16 @@ describe('[special tone sandhi]绕口令', () => {
   it('[special tone sandhi]了', () => {
     const result = pinyin('了吧');
     expect(result).to.be.equal('liǎo ba');
+  });
+
+  it('[special 々]々', () => {
+    const result = pinyin('天々向上，好々学习');
+    expect(result).to.be.equal('tiān tiān xiàng shàng ， hǎo hǎo xué xí');
+
+    const result1 = pinyin('々々');
+    expect(result1).to.be.equal('tóng tóng');
+
+    const result2 = pinyin('々，々');
+    expect(result2).to.be.equal('tóng ， tóng');
   });
 });
