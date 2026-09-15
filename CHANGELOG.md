@@ -1,5 +1,89 @@
 # 更新日志
 
+## 3.28.1
+
+- 【feat】`convert` api 中增加了对于儿化音缩写格式的识别支持 [#306](https://github.com/zh-lx/pinyin-pro/pull/306)
+
+## 3.28.0
+
+- 【feat】新增 `addTraditionalDict` API，用于更好的识别繁体字 [#303](https://github.com/zh-lx/pinyin-pro/pull/303)
+
+## 3.27.0
+
+- 【feat】`pinyin` API 新增 `initialPattern` 选项，用于排除 `y` 和 `w` 作为声母 [#295](https://github.com/zh-lx/pinyin-pro/pull/295)
+
+## 3.26.0
+
+- 【feat】修复 `first` 在 `pattern: 'first'` 模式和 `type: 'all'` 中返回值不一致的问题：修改为对于非中文，统一返回原始非中文字符 [#278](https://github.com/zh-lx/pinyin-pro/pull/278)
+
+## 3.25.0
+
+- 【feat】`match` API 新增 `v` 选项，允许使用 `v` 匹配 `ü` 的拼音 [#276](https://github.com/zh-lx/pinyin-pro/pull/276)
+
+## 3.24.2
+
+- 【feat】`html` API 增加 `rp` 选项，用于去除输出结果中的 `<rp>(</rp>` 和 `<rp>)</rp>` [#272](https://github.com/zh-lx/pinyin-pro/pull/272)
+- 【feat】`html` API 中自定义类名为 `false` 或者 `null` 时，保持默认类名 [#271](https://github.com/zh-lx/pinyin-pro/pull/271)
+
+## 3.24.1
+
+- 【fix】修复 `segment` 对于最后的标点符号丢弃的问题 [#268](https://github.com/zh-lx/pinyin-pro/pull/268)
+
+## 3.24.0
+
+- 【feat】新增 `segment` API 用于分词 [#265](https://github.com/zh-lx/pinyin-pro/pull/265)
+- 【feat】`pinyin` API 新增 `nonZhScope` 属性用于指定 `nonZh` 的范围 [#266](https://github.com/zh-lx/pinyin-pro/pull/266)
+
+## 3.23.1
+
+- 【patch】修正部分读音 [#260](https://github.com/zh-lx/pinyin-pro/pull/260)
+
+## 3.23.0
+
+- 【feat】支持外部调用 `getInitialAndFinal`、`getFinalParts`、`getNumOfTone` 等 API [#255](https://github.com/zh-lx/pinyin-pro/pull/255)
+
+## 3.22.2
+
+- 【fix】修复 alias 导致的 `.d.ts` 文件报错 [#253](https://github.com/zh-lx/pinyin-pro/pull/253)
+
+## 3.22.1
+
+- 【patch】校正部分词库 [#252](https://github.com/zh-lx/pinyin-pro/pull/252)
+- 【perf】小幅优化性能 [#251](https://github.com/zh-lx/pinyin-pro/pull/251)
+
+## 3.22.0
+
+- 【feat】各 api 全面适配双 unicode 编码中文字符 [#242](https://github.com/zh-lx/pinyin-pro/pull/242)、[#243](https://github.com/zh-lx/pinyin-pro/pull/243)、[#247](https://github.com/zh-lx/pinyin-pro/pull/247)
+- 【feat】支持[《通用汉字规范表》](https://zh.wiktionary.org/wiki/Appendix:%E6%B1%89%E8%AF%AD%E6%8B%BC%E9%9F%B3%E7%B4%A2%E5%BC%95/%E9%80%9A%E7%94%A8%E8%A7%84%E8%8C%83%E6%B1%89%E5%AD%97%E8%A1%A8) 中所有字符 [#244](https://github.com/zh-lx/pinyin-pro/pull/244)
+- 【feat】支持叠字符 々 的发音 [#245](https://github.com/zh-lx/pinyin-pro/pull/245)
+- 【feat】支持 `êê̄ếê̌ề` 等拼音字符 [#248](https://github.com/zh-lx/pinyin-pro/pull/248)
+- 【patch】修正 `曲` 默认读音: [#249](https://github.com/zh-lx/pinyin-pro/pull/249)
+
+## 3.21.1
+
+- 【fix】修复 `surname: 'head'` 对于复姓不生效的问题
+
+## 3.21.0
+
+- 【feat】`pinyin` api 新增 `surname` 选项，支持只识别字符串开头的姓氏
+
+## 3.20.4
+
+- 【fix】修复 alias 导致的 ts 类型错误
+
+## 3.20.3
+
+- 【fix】修复 `convert` api 对于 `iu` 韵母声调转换不正确的问题
+- 【patch】修复部分字词读音，详见 [#232](https://github.com/zh-lx/pinyin-pro/pull/232)
+
+## 3.20.2
+
+- 【fix】修复 `polyphonic` 和 `pinyin` 对非中文字符转换表现不一致的问题
+
+## 3.20.1
+
+- 【fix】更新词典依赖版本
+
 ## 3.20.0
 
 - 【feat】支持通过 `addDict` api 自定义词典
@@ -380,7 +464,7 @@
 
 ## 3.5.0
 
-- 【feat】新增 `match` api 以支持拼音文本匹配功能。[去看看](/user/match)
+- 【feat】新增 `match` api 以支持拼音文本匹配功能。[去看看](/user/match.html)
 
 ## 3.4.1
 
@@ -389,7 +473,7 @@
 ## 3.4.0
 
 - 【feat】<b>pinyin</b>：`options` 参数新增 `mode` 可选属性，`options.mode = 'surname'` 模式支持姓氏模式拼音识别。[去看看](/use/pinyin.html#姓氏模式)
-- 【feat】新增 `customPinyin` api，支持用户自定义拼音功能。[去看看](/use/customPinyin)
+- 【feat】新增 `customPinyin` api，支持用户自定义拼音功能。[去看看](/use/customPinyin.html)
 - 【fix】修复文本过长时堆栈溢出问题
 - 【patch】修正部分读音：
   - 褚: `zhǔ` -> `chǔ zhǔ`
